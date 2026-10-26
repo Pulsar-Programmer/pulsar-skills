@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pulsar Feature Audit"
+  short_description: "Read-only commit audits with sharp visual evidence"
+  default_prompt: "Use $pulsar-feature-audit to audit commit <commit>, run the app, and show sharp screenshots of every visible change without editing the project."

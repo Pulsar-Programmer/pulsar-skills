@@ -50,7 +50,7 @@ Invocation syntax and skill discovery depend on the host. The skill needs a codi
 
 ## pulsar-ux-reuse
 
-Reuse existing UI components across the codebase. Do not create your own. Frontend changes move, wire, or reuse existing UI and established compositions; missing UI requires explicit permission before creating it.
+Reuse existing UI components across the codebase. Do not create your own. Frontend changes move, wire, or reuse existing UI.
 
 Install for Claude Code and Codex at user scope:
 

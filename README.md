@@ -48,17 +48,17 @@ $pulsar-feature-audit Audit commit <commit-sha> and show every visible change in
 
 Invocation syntax and skill discovery depend on the host. The skill needs a coding agent with repository, local server, browser, and screenshot access; this is not a ChatGPT GPT Store app.
 
-## pulsar-ux-reuse
+## pulsar-ui-reuse
 
 Reuse existing UI components across the codebase. Do not create your own. Frontend changes move, wire, or reuse existing UI.
 
 Install for Claude Code and Codex at user scope:
 
 ```sh
-npx skills add Pulsar-Programmer/pulsar-skills --skill pulsar-ux-reuse --agent claude-code codex --global
+npx skills add Pulsar-Programmer/pulsar-skills --skill pulsar-ui-reuse --agent claude-code codex --global
 ```
 
-Invoke with `/pulsar-ux-reuse` in Claude Code or `$pulsar-ux-reuse` in Codex.
+Invoke with `/pulsar-ui-reuse` in Claude Code or `$pulsar-ui-reuse` in Codex.
 
 ## Add another skill
 

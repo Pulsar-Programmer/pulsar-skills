@@ -13,4 +13,4 @@ Run `cat` on every created or edited `SKILL.md` and show its complete final cont
 
 After approval, install a copy in `~/.agents/skills/<name>` and symlink both `~/.codex/skills/<name>` and `~/.claude/skills/<name>` to it. Keep the installed copy identical to the repo version. Preserve unrelated existing files; stop on conflicting installs. Commit only the approved skill changes, then push the current branch to its remote and verify it is up to date.
 
-End each skill review reply with a separate block listing only what was added or removed. Label the entries `Added` and `Removed`; use `None` when either has no changes.
+End each skill review reply with a separate `diff` code block containing the exact text added or removed, prefixed with `+` for added lines and `-` for removed lines. Include only changed lines, without summaries, unchanged context, or diff headers.

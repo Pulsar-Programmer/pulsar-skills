@@ -12,3 +12,5 @@ Prepare and validate the repo changes first. Do not install, update installed co
 Run `cat` on every created or edited `SKILL.md` and show its complete final contents in the reply, along with planned installation paths, every time before waiting for the user's "OK". Honor any requested review before installing. Mention any existing unpushed commits before approval, since the push will include them.
 
 After approval, install a copy in `~/.agents/skills/<name>` and symlink both `~/.codex/skills/<name>` and `~/.claude/skills/<name>` to it. Keep the installed copy identical to the repo version. Preserve unrelated existing files; stop on conflicting installs. Commit only the approved skill changes, then push the current branch to its remote and verify it is up to date.
+
+End each skill review reply with a separate block listing only what was added or removed. Label the entries `Added` and `Removed`; use `None` when either has no changes.

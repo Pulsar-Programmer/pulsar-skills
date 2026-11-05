@@ -1,0 +1,22 @@
+---
+name: pulsar-sigma-merge
+description: Audit and selectively integrate changes from an upstream, fork, or independent repository while prioritizing the destination's own changes and architecture. Use for selective upstream updates and clean, squashed imports.
+---
+
+# Pulsar Sigma Merge
+
+Treat the current repository as an independent product and the source repository as a source of changes to evaluate. Invocation requests an audit and selective integration, including local commits; honor an audit-only request without editing or committing. Push only when requested.
+
+1. **Identify the source and scope.** Inspect remotes, fork metadata when available, tracking branches, and prior import references. Do not confuse the current branch's tracking remote with the project's upstream. Use an explicitly supplied source; otherwise autodetect only when the evidence is clear. If missing or ambiguous, ask which repository and branch/ref to examine before importing. Accept independent repositories without shared Git history. Fetch source history without overwriting existing remotes or moving the destination branch; record the source URL and resolved SHA.
+
+2. **Establish the comparison.** Use the requested range or a verified previous import checkpoint; otherwise use a meaningful shared ancestor. Squashed or adapted imports may already contain fixes without their original commits: inspect behavior and patch equivalence before treating commits as missing. Without a reliable baseline, ask for a range or area of interest instead of treating the entire source as new work. For unrelated histories, compare relevant implementations and behavior; do not force a merge or invent ancestry.
+
+3. **Understand our direction first.** Read repository instructions, current code, and tests. Identify the fork owner's author identities from available context and history; ask if ambiguity prevents identifying their changes. Explicitly inspect their commits, including messages and diffs, especially those affecting incoming candidates. Trace subsequent edits and squashed commits so author filtering does not hide local decisions. Identify deliberate local features, removals, architecture, branding, and workflows before evaluating incoming changes. Give the owner's changes and intent substantially greater weight than source decisions, and preserve deliberate local work by other contributors too. Never restore an intentionally removed feature or replace a local design just because the source is newer. Preserve unrelated and uncommitted work; isolate overlapping work when needed.
+
+4. **Audit candidates.** Group source commits by actual fix or feature, inspect surrounding code and dependencies, and decide adopt, adapt, skip, or blocked with a short reason. Prioritize applicable bug and security fixes, then improvements that fit our product. Verify that each problem exists here. Exclude already implemented changes and incompatible roadmap choices. Trace prerequisites; do not pull in an unwanted refactor just to obtain a small fix. Ask only when an unresolved product choice materially affects our direction; continue independent work.
+
+5. **Integrate selectively.** Fix the same problem using our architecture; preserve the source implementation where it fits. Apply compatible patches or reimplement the relevant behavior when divergence makes copying inappropriate. Do not bulk-merge the source branch, blindly resolve conflicts in its favor, or import unrelated history. Retain required attribution and license notices when reusing code.
+
+6. **Verify and commit cleanly.** Run relevant project checks and targeted regression tests proving the adopted behavior and preservation of affected local behavior. If checks fail or are blocked, report this and leave the affected work uncommitted. Prefer one meaningful destination commit per cohesive fix or feature, squashing its source commits and fixups together; keep unrelated changes separate. Commit only task changes. Include source repository and commit references, plus significant adaptations, in commit bodies. Do not rewrite existing published history or unrelated local commits to tidy an import.
+
+Report the source and compared range, adopted/adapted changes, skipped or blocked candidates with reasons, validation results and limitations, and resulting local commits. State which source changes remain unreviewed. Record enough provenance to resume future audits; do not label a partially reviewed range as fully integrated.
